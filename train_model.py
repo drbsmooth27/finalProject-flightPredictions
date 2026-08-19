@@ -3,6 +3,7 @@
 # import modules and libraries
 import joblib
 import pandas as pd
+import wandb
 from sklearn.compose import ColumnTransformer
 from sklearn.linear_model import LinearRegression
 from sklearn.metrics import (
@@ -15,8 +16,6 @@ from sklearn.metrics import (
 )
 from sklearn.pipeline import Pipeline
 from sklearn.preprocessing import OneHotEncoder, StandardScaler
-
-import wandb
 
 # -----------------------------
 # Start W&B experiment

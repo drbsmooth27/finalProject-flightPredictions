@@ -7,10 +7,9 @@ import time
 import joblib
 import pandas as pd
 import psycopg2
+import wandb
 from fastapi import FastAPI
 from pydantic import BaseModel
-
-import wandb
 
 # -----------------------------------
 # Create FastAPI app

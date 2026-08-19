@@ -24,7 +24,7 @@ from sklearn.metrics import (
 
 run = wandb.init(
     project="flight-delay-mlops",
-    name="linear-regression-v1",
+    name="linear-regression-v2",
     config={
         "model": "LinearRegression",
         "data_version": "flightdata_MLReady_2026_v1",
@@ -35,8 +35,6 @@ run = wandb.init(
             "DAY_OF_MONTH",
             "DAY_OF_WEEK",
             "OP_UNIQUE_CARRIER",
-            "TAIL_NUM",
-            "OP_CARRIER_FL_NUM",
             "ORIGIN_AIRPORT_ID",
             "DEST_AIRPORT_ID",
             "CRS_DEP_TIME",
@@ -58,8 +56,6 @@ rawData = pd.read_csv("Data/flightdata_MLReady_2026.csv")
 
 categorical_cols = [
     "OP_UNIQUE_CARRIER",
-    "TAIL_NUM",
-    "OP_CARRIER_FL_NUM",
     "ORIGIN_AIRPORT_ID",
     "DEST_AIRPORT_ID"
 ]
@@ -78,10 +74,10 @@ rawData["FL_DATE"] = pd.to_datetime(rawData["FL_DATE"])
 trainData = rawData[rawData["FL_DATE"].dt.month <= 5].copy()
 testData = rawData[rawData["FL_DATE"].dt.month == 6].copy()
 
-X_train = trainData.drop(columns=["ARR_DELAY", "FL_DATE"])
+X_train = trainData.drop(columns=["ARR_DELAY", "FL_DATE","TAIL_NUM","OP_CARRIER_FL_NUM"])
 y_train = trainData["ARR_DELAY"]
 
-X_test = testData.drop(columns=["ARR_DELAY", "FL_DATE"])
+X_test = testData.drop(columns=["ARR_DELAY", "FL_DATE","TAIL_NUM","OP_CARRIER_FL_NUM"])
 y_test = testData["ARR_DELAY"]
 
 # -----------------------------

@@ -30,7 +30,19 @@ run = wandb.init(
         "data_version": "flightdata_MLReady_2026_v1",
         "train_period": "Jan-May 2026",
         "test_period": "June 2026",
-        "target": "ARR_DELAY"
+        "target": "ARR_DELAY",
+        "features": [
+            "DAY_OF_MONTH",
+            "DAY_OF_WEEK",
+            "OP_UNIQUE_CARRIER",
+            "TAIL_NUM",
+            "OP_CARRIER_FL_NUM",
+            "ORIGIN_AIRPORT_ID",
+            "DEST_AIRPORT_ID",
+            "CRS_DEP_TIME",
+            "CRS_ARR_TIME",
+            "CRS_ELAPSED_TIME"
+        ],
     }
 )
 

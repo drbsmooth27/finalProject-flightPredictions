@@ -1,22 +1,22 @@
 # Leonard Dixon - Final Project
 
 # import modules and libraries
-import pandas as pd
 import joblib
-import wandb
-
+import pandas as pd
 from sklearn.compose import ColumnTransformer
-from sklearn.preprocessing import OneHotEncoder, StandardScaler
-from sklearn.pipeline import Pipeline
 from sklearn.linear_model import LinearRegression
 from sklearn.metrics import (
+    f1_score,
     mean_absolute_error,
     mean_squared_error,
-    r2_score,
     precision_score,
+    r2_score,
     recall_score,
-    f1_score
 )
+from sklearn.pipeline import Pipeline
+from sklearn.preprocessing import OneHotEncoder, StandardScaler
+
+import wandb
 
 # -----------------------------
 # Start W&B experiment
